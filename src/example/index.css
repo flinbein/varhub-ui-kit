@@ -1,0 +1,38 @@
+.varhub-page {
+	min-width: 100vw;
+	min-height: 100vh;
+	background-color: var(--color-background-page);
+
+	--color-text-page: black;
+	--color-background-page: #ffffff;
+}
+
+.varhub-page.dark-mode {
+	--color-background-page: #1e1e1e;
+	--color-text-page: #ffffff;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.varhub-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.vh-ml-2 {
+	margin-left: 8px;
+}
+
+.vh-mt-2 {
+	margin-top: 8px;
+}
+.vh-mt-3 {
+	margin-top: 12px;
+}

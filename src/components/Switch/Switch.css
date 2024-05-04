@@ -1,0 +1,56 @@
+.vh-toggle {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.vh-toggle-switch {
+    display: inline-block;
+    background: #ccc;
+    border-radius: 16px;
+    width: 58px;
+    height: 28px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+.vh-toggle-switch:before, .vh-toggle-switch:after {
+    content: "";
+}
+.vh-toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: left 0.25s;
+}
+.vh-toggle:hover .vh-toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.vh-toggle-checkbox:checked + .vh-toggle-switch {
+    background: #2ea44f;
+}
+.vh-toggle-checkbox:checked + .vh-toggle-switch:before {
+    left: 34px;
+}
+
+
+.vh-toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+.vh-toggle-label {
+    margin-right: 8px;
+    position: relative;
+    top: 2px;
+}
+
+.vh-toggle-label:after {
+    content: ":";
+}

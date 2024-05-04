@@ -1,0 +1,6 @@
+{
+    "extends": "@flinbein/parcel-config-varhub",
+    "transformers": {
+        "material-design-lite": []
+    }
+}

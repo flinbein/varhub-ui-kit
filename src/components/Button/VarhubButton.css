@@ -1,0 +1,85 @@
+.varhub-button.type-primary {
+    --color-bg: #2ea44f;
+    --color-border: #1b1f2326;
+    --color-shadow: #1b1f2319;
+    --color-text: #fff;
+
+    --color-hover-bg: #2c974b;
+    --color-focus-shadow: #2ea44f66;
+
+    --color-disabled-bg: #94d3a2;
+    --color-disabled-border: #1b1f2319;
+    --color-disabled-text: #ffffffcc;
+
+    --color-active-bg: #298e46;
+    --color-active-shadow: #14462033;
+}
+
+.varhub-button.type-secondary {
+    --color-bg: #2E6DA4;
+    --color-border: #201B2326;
+    --color-shadow: #201B2319;
+    --color-text: #fff;
+
+    --color-hover-bg: #2C6597;
+    --color-focus-shadow: #2E6DA466;
+
+    --color-disabled-bg: #94BAD3;
+    --color-disabled-border: #201B2319;
+    --color-disabled-text: #ffffffcc;
+
+    --color-active-bg: #295F8E;
+    --color-active-shadow: #14314633;
+}
+
+.varhub-button {
+    appearance: none;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    box-shadow: var(--color-shadow) 0 1px 0;
+    box-sizing: border-box;
+    color: var(--color-text);
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.varhub-button:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+}
+
+.varhub-button:hover {
+    background-color: var(--color-hover-bg);
+}
+
+.varhub-button:focus {
+    box-shadow: var(--color-focus-shadow) 0 0 0 3px;
+    outline: none;
+}
+
+button.varhub-button:disabled {
+    background-color: var(--color-disabled-bg);
+    border-color: var(--color-disabled-border);
+    color: var(--color-disabled-text);
+    cursor: not-allowed;
+}
+
+.varhub-button:active {
+    background-color: var(--color-active-bg);
+    box-shadow: var(--color-active-shadow) 0 1px 0 inset;
+}

@@ -1,0 +1,33 @@
+.vh-settings-section {
+    margin-top: 16px;
+}
+
+.vh-settings-section__title {
+    margin: 12px 0 0 0;
+    font-size: 18px;
+}
+
+.vh-settings-section__title__button {
+    margin-left: 8px;
+    padding-bottom: 2px;
+    color: #2ea44f;
+    cursor: pointer;
+}
+.vh-settings-section__title__button > i {
+    margin-bottom: 2px;
+}
+
+.vh-settings-section__title__button.reversed {
+    display: inline-block;
+    transform: rotate(180deg);
+}
+
+.vh-settings-section__body.hidden {
+    display: none;
+}
+
+.vh-settings-section__body {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}

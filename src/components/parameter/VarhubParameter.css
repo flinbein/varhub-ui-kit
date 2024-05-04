@@ -1,0 +1,42 @@
+.varhub-parameter-input {
+    position: relative;
+    width: 100%;
+    background-color: var(--color-bg);
+
+    border-radius: 12px;
+    border: 2px solid var(--color-text-page);
+}
+
+.varhub-parameter-input > input {
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    width: 100%;
+    color: var(--color-text-page);
+    outline: none !important;
+    background-color: var(--color-bg);
+}
+
+.varhub-parameter-input > label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    padding: 0 5px;
+    --change-bg-on: 10px;
+    background: linear-gradient(
+            0deg,
+            var(--color-bg) 0%,
+            var(--color-bg) var(--change-bg-on),
+            transparent var(--change-bg-on),
+            transparent 100%
+    );
+}
+
+
+/*.varhub-parameter-input:focus > input {*/
+/*    background-color: #232323;*/
+/*}*/
+
+.varhub-parameter-input:focus-within {
+    border: 2px solid #2E6DA4;
+}

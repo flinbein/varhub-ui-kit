@@ -1,0 +1,32 @@
+{
+  "name": "@flinbein/varhub-ui-kit",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An starter ui kit for varhub games",
+  "license": "MIT",
+  "author": "myxomopx@gmail.com",
+  "scripts": {
+    "dev": "parcel src/example/index.html --no-cache --public-url /",
+    "start": "npm run build && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@flinbein/varhub-web-client": "git+https://github.com/flinbein/varhub-web-client.git#1.0.5",
+    "classnames": "^2.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.3",
+    "use-latest-callback": "^0.1.9"
+  },
+  "devDependencies": {
+    "@flinbein/parcel-config-varhub": "git+https://github.com/flinbein/parcel-config-varhub.git#2.0.0",
+    "@flinbein/varhub-api-network": "git+https://github.com/flinbein/varhub-api-network#1.0.3",
+    "@types/parcel-config-varhub": "file:./node_modules/@flinbein/parcel-config-varhub",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "@types/varhub-web-client": "file:./node_modules/@flinbein/varhub-web-client",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10",
+    "typescript": "^5.4.5"
+  }
+}

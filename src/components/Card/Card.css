@@ -1,0 +1,63 @@
+
+
+.varhub-card {
+    width: 500px;
+    max-width: 100%;
+    box-sizing: border-box;
+    color: var(--color-text-page);
+    box-shadow: var(--shadow-color) 0px 3px 8px;
+    background-color: var(--color-bg);
+
+    --shadow-color: rgba(0, 0, 0, 0.24);
+    --border-color: grey;
+    --border-width: 1px;
+
+    --color-bg: var(--color-background-page);
+}
+
+.dark-mode .varhub-card {
+
+    --color-bg: #2e2e2e;
+    --shadow-color: rgba(255, 255, 255, 0.24);
+}
+
+.varhub-card__header {
+    color: var(--color-text-page);
+    box-sizing: border-box;
+    border-bottom: var(--border-color) var(--border-width) solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.varhub-card__header__text {
+    margin: 0;
+}
+
+.varhub-card__content {
+    padding: 8px;
+}
+
+.varhub-card__divider--top {
+    border-top: 1px solid gray;
+}
+
+@media only screen and (min-width: 500px){
+    .varhub-card {
+        margin: auto;
+        margin-top: 48px;
+    }
+}
+
+.varhub-card__body {
+    padding: 12px;
+}
+
+.varhub-card__powered-by {
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-text-page);
+}
+
+.varhub-card__link {
+    color: #2ea44f
+}

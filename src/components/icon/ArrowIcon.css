@@ -1,0 +1,26 @@
+.vh-arrow {
+    border: solid currentColor;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.vh-arrow.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.vh-arrow.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.vh-arrow.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.vh-arrow.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
