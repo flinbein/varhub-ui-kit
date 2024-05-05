@@ -1,9 +1,7 @@
 import {Controller, useFormContext} from "react-hook-form";
-import {FC, useEffect} from "react";
-import cn from "classnames"
+import {FC} from "react";
 
 import "./VarhubParameter.css"
-import {useRandomId} from "../../util/useRandomId";
 import {Switch} from "../Switch/Switch";
 
 export interface VarhubSwitchParameterProps {

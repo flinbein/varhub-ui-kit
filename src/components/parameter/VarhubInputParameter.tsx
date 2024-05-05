@@ -9,7 +9,6 @@ export interface VarhubInputParameterProps {
     placeholder?: string;
     label?: string;
     className?: string;
-    defaultValue?: string;
     required?: boolean;
     pattern?: RegExp
     patternMessage?: string;
