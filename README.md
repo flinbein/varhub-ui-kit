@@ -139,7 +139,7 @@ return (
 | className | `string` |  |  | Classname for page wrapper |
 | darkMode | `boolean` |  | false | Makes page dark |
 | onEnter | `(opts: OnEnterRoomOpts) => void` |  |  | Callback for create/join room |
-| abortController | `AbortController|null` |  |  | Controls the loading state & used to canceling room creation |
+| abortController | `AbortController / null` |  |  | Controls the loading state & used to canceling room creation |
 
 ```ts
 export interface OnEnterRoomOpts {
