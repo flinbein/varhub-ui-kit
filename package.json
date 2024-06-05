@@ -1,14 +1,44 @@
 {
   "name": "@flinbein/varhub-ui-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "An starter ui kit for varhub games",
   "license": "MIT",
   "author": "myxomopx@gmail.com",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
-    "dev": "parcel src/example/index.html --no-cache --public-url /",
+    "build": "parcel build --no-cache",
+    "dev": "parcel --no-cache --target example",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "targets": {
+    "example": {
+      "source": "src/example/index.html",
+      "distDir": "./dist/example",
+      "publicUrl": "/"
+    },
+    "module": {
+      "source": "src/index.ts",
+      "distDir": "./dist/esm",
+      "context": "node",
+      "isLibrary": true,
+      "outputFormat": "esmodule",
+      "includeNodeModules": false
+    },
+    "main": {
+      "source": "src/index.ts",
+      "distDir": "./dist/cjs",
+      "context": "browser",
+      "isLibrary": true,
+      "includeNodeModules": false
+    },
+    "types": {
+      "source": "./src/index.ts",
+      "distDir": "./dist/types"
+    }
   },
   "dependencies": {
     "@flinbein/varhub-web-client": "git+https://github.com/flinbein/varhub-web-client.git#1.0.5",
@@ -20,11 +50,10 @@
   },
   "devDependencies": {
     "@flinbein/parcel-config-varhub": "git+https://github.com/flinbein/parcel-config-varhub.git#2.0.0",
-    "@flinbein/varhub-api-network": "git+https://github.com/flinbein/varhub-api-network#1.0.3",
-    "@types/parcel-config-varhub": "file:./node_modules/@flinbein/parcel-config-varhub",
+    "@parcel/packager-ts": "^2.12.0",
+    "@parcel/transformer-typescript-types": "^2.12.0",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
-    "@types/varhub-web-client": "file:./node_modules/@flinbein/varhub-web-client",
     "parcel": "^2.12.0",
     "process": "^0.11.10",
     "typescript": "^5.4.5"

@@ -1,2 +1,1 @@
-
-console.log("AMMA GAME")
+console.log("AMMA GAME CODE")
