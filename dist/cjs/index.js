@@ -27,106 +27,6 @@ function $parcel$exportWildcard(dest, source) {
 function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
-
-      var $parcel$global = globalThis;
-    
-var $parcel$modules = {};
-var $parcel$inits = {};
-
-var parcelRequire = $parcel$global["parcelRequireba06"];
-
-if (parcelRequire == null) {
-  parcelRequire = function(id) {
-    if (id in $parcel$modules) {
-      return $parcel$modules[id].exports;
-    }
-    if (id in $parcel$inits) {
-      var init = $parcel$inits[id];
-      delete $parcel$inits[id];
-      var module = {id: id, exports: {}};
-      $parcel$modules[id] = module;
-      init.call(module.exports, module, module.exports);
-      return module.exports;
-    }
-    var err = new Error("Cannot find module '" + id + "'");
-    err.code = 'MODULE_NOT_FOUND';
-    throw err;
-  };
-
-  parcelRequire.register = function register(id, init) {
-    $parcel$inits[id] = init;
-  };
-
-  $parcel$global["parcelRequireba06"] = parcelRequire;
-}
-
-var parcelRegister = parcelRequire.register;
-parcelRegister("1mGjA", function(module, exports) {
-
-module.exports = (parcelRequire("bVovV"))(new URL("Card.f02371b1.css", import.meta.url).toString());
-
-});
-parcelRegister("bVovV", function(module, exports) {
-"use strict";
-
-var $edjz9 = parcelRequire("edjz9");
-module.exports = $edjz9(function(bundle) {
-    return new Promise(function(resolve, reject) {
-        // Don't insert the same link element twice (e.g. if it was already in the HTML)
-        var existingLinks = document.getElementsByTagName("link");
-        if ([].concat(existingLinks).some(function isCurrentBundle(link) {
-            return link.href === bundle && link.rel.indexOf("stylesheet") > -1;
-        })) {
-            resolve();
-            return;
-        }
-        var link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = bundle;
-        link.onerror = function(e) {
-            link.onerror = link.onload = null;
-            link.remove();
-            reject(e);
-        };
-        link.onload = function() {
-            link.onerror = link.onload = null;
-            resolve();
-        };
-        document.getElementsByTagName("head")[0].appendChild(link);
-    });
-});
-
-});
-parcelRegister("edjz9", function(module, exports) {
-"use strict";
-var $a59174fa7ac9d266$var$cachedBundles = {};
-var $a59174fa7ac9d266$var$cachedPreloads = {};
-var $a59174fa7ac9d266$var$cachedPrefetches = {};
-function $a59174fa7ac9d266$var$getCache(type) {
-    switch(type){
-        case "preload":
-            return $a59174fa7ac9d266$var$cachedPreloads;
-        case "prefetch":
-            return $a59174fa7ac9d266$var$cachedPrefetches;
-        default:
-            return $a59174fa7ac9d266$var$cachedBundles;
-    }
-}
-module.exports = function(loader, type) {
-    return function(bundle) {
-        var cache = $a59174fa7ac9d266$var$getCache(type);
-        if (cache[bundle]) return cache[bundle];
-        return cache[bundle] = loader.apply(null, arguments).catch(function(e) {
-            delete cache[bundle];
-            throw e;
-        });
-    };
-};
-
-});
-
-
-
 var $7a01227ec68604c5$exports = {};
 var $6284b252915b3f38$exports = {};
 
@@ -221,8 +121,6 @@ const $e5740e6abd700f52$export$3b0d6d7590275603 = ({ size: size })=>{
 
 
 
-// @ts-ignore
-(parcelRequire("1mGjA"));
 const $1ca5605b0c4bb855$export$60332b2344f7fe41 = (props)=>{
     const { children: children, title: title, actions: actions, loading: loading } = props;
     return /*#__PURE__*/ (0, $6FeVr$jsxs)("div", {

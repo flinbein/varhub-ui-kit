@@ -7,10 +7,6 @@ import $7RevM$uselatestcallback from "use-latest-callback";
 import $7RevM$classnames from "classnames";
 
 
-function $parcel$export(e, n, v, s) {
-  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
-}
-
 function $parcel$exportWildcard(dest, source) {
   Object.keys(source).forEach(function(key) {
     if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) {
@@ -28,106 +24,9 @@ function $parcel$exportWildcard(dest, source) {
   return dest;
 }
 
-      var $parcel$global =
-        typeof globalThis !== 'undefined'
-          ? globalThis
-          : typeof self !== 'undefined'
-          ? self
-          : typeof window !== 'undefined'
-          ? window
-          : typeof global !== 'undefined'
-          ? global
-          : {};
-  
-var $parcel$modules = {};
-var $parcel$inits = {};
-
-var parcelRequire = $parcel$global["parcelRequireba06"];
-
-if (parcelRequire == null) {
-  parcelRequire = function(id) {
-    if (id in $parcel$modules) {
-      return $parcel$modules[id].exports;
-    }
-    if (id in $parcel$inits) {
-      var init = $parcel$inits[id];
-      delete $parcel$inits[id];
-      var module = {id: id, exports: {}};
-      $parcel$modules[id] = module;
-      init.call(module.exports, module, module.exports);
-      return module.exports;
-    }
-    var err = new Error("Cannot find module '" + id + "'");
-    err.code = 'MODULE_NOT_FOUND';
-    throw err;
-  };
-
-  parcelRequire.register = function register(id, init) {
-    $parcel$inits[id] = init;
-  };
-
-  $parcel$global["parcelRequireba06"] = parcelRequire;
+function $parcel$export(e, n, v, s) {
+  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
-
-var parcelRegister = parcelRequire.register;
-parcelRegister("c6J7f", function(module, exports) {
-
-
-module.exports = (parcelRequire("FJ3lg"))((parcelRequire("htY9X")).getBundleURL("7RevM") + "Card.9b838d68.css");
-
-});
-parcelRegister("FJ3lg", function(module, exports) {
-"use strict";
-// loading a CSS style is a no-op in Node.js
-module.exports = function() {
-    return Promise.resolve();
-};
-
-});
-
-parcelRegister("htY9X", function(module, exports) {
-
-$parcel$export(module.exports, "getBundleURL", () => $cba3cf862cf01d96$export$bdfd709ae4826697, (v) => $cba3cf862cf01d96$export$bdfd709ae4826697 = v);
-var $cba3cf862cf01d96$export$bdfd709ae4826697;
-var $cba3cf862cf01d96$export$c9e73fbda7da57b6;
-var $cba3cf862cf01d96$export$5a759dc7a1cfb72a;
-"use strict";
-var $cba3cf862cf01d96$var$bundleURL = {};
-function $cba3cf862cf01d96$var$getBundleURLCached(id) {
-    var value = $cba3cf862cf01d96$var$bundleURL[id];
-    if (!value) {
-        value = $cba3cf862cf01d96$var$getBundleURL();
-        $cba3cf862cf01d96$var$bundleURL[id] = value;
-    }
-    return value;
-}
-function $cba3cf862cf01d96$var$getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return $cba3cf862cf01d96$var$getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function $cba3cf862cf01d96$var$getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function $cba3cf862cf01d96$var$getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-$cba3cf862cf01d96$export$bdfd709ae4826697 = $cba3cf862cf01d96$var$getBundleURLCached;
-$cba3cf862cf01d96$export$c9e73fbda7da57b6 = $cba3cf862cf01d96$var$getBaseURL;
-$cba3cf862cf01d96$export$5a759dc7a1cfb72a = $cba3cf862cf01d96$var$getOrigin;
-
-});
-
-
 var $79a74da3b5f51f5d$exports = {};
 var $ad6a7c3143400999$exports = {};
 
@@ -222,8 +121,6 @@ const $f2afd96a63ac238e$export$3b0d6d7590275603 = ({ size: size })=>{
 
 
 
-// @ts-ignore
-(parcelRequire("c6J7f"));
 const $cad624abfe712d33$export$60332b2344f7fe41 = (props)=>{
     const { children: children, title: title, actions: actions, loading: loading } = props;
     return /*#__PURE__*/ (0, $7RevM$jsxs)("div", {

@@ -1,10 +1,8 @@
 import {FC, PropsWithChildren, ReactNode} from "react";
 import cn from "classnames";
-import {Switch} from "../Switch/Switch";
 import {Loader} from "../Loader/Loader";
 
-// @ts-ignore
-import("./Card.css")
+import "./Card.css";
 
 interface CardProps {
     title: string;
