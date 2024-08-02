@@ -1,12 +1,9 @@
 import {FC, useCallback} from "react";
-import {VarhubGameClientProvider} from "../context/VarhubGameClientContext";
-import {SettingsInputParameter} from "../components/settings/SettingsInputParameter";
-import {SettingsNumberParameter} from "../components/settings/SettingsNumberParameter";
-import {SettingsSwitchParameter} from "../components/settings/SettingsSwitchParameter";
+import {VarhubGameClientProvider} from "../context";
+import {SettingsInputParameter, SettingsNumberParameter, SettingsSwitchParameter, VarhubSelfControlEnterPage} from "../components";
 
 
 import roomIntegrity from "varhub-modules-integrity:./game:index.ts";
-import {VarhubSelfControlEnterPage} from "../components/VarhubSelfControlEnterPage";
 
 export const App: FC = () => {
     const onEnter = useCallback((client) => {

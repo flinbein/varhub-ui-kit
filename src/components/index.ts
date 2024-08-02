@@ -1,3 +1,4 @@
+import "./index.css"
 export * from "./VarhubEnterPage"
 export * from "./VarhubSelfControlEnterPage"
 
