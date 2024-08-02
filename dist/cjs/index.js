@@ -459,7 +459,7 @@ const $93cd45a1d9c70777$export$70faa2a42c1db4b3 = (props)=>{
             abortController: abortController
         });
         setAbortController(null);
-        onEnter(client);
+        onEnter?.(client);
         ctx.setClient(client);
         (0, $3d95dcde1e828b40$export$43dc93b37e1cef48)({
             ...params,

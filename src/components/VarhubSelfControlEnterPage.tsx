@@ -30,7 +30,7 @@ export const VarhubSelfControlEnterPage: FC<PropsWithChildren<VarhubSelfControlE
             abortController
         });
         setAbortController(null);
-        onEnter(client);
+        onEnter?.(client);
         ctx.setClient(client)
         saveVarhubEnterParams({
             ...params,
