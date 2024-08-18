@@ -11,7 +11,7 @@
     padding: 10px;
     border-radius: 12px;
     border: none;
-    width: 100%;
+    /*width: 100%;*/
     color: var(--color-text-page);
     outline: none !important;
     background-color: var(--color-bg);
