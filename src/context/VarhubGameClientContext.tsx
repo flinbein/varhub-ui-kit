@@ -20,6 +20,6 @@ export const VarhubGameClientProvider: FC<PropsWithChildren> = ({children}) => {
     )
 }
 
-export const useVarhubGameClient = <CLIENT extends VarhubClient>(): CLIENT|null => {
+export const useVarhubGameClient = <CLIENT,>(): CLIENT|null => {
     return useContext(VarhubGameClientContext).client as CLIENT|null;
 }

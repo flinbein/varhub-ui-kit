@@ -65,7 +65,7 @@ interface IVarhubGameClientContext {
 }
 export const VarhubGameClientContext: import("react").Context<IVarhubGameClientContext>;
 export const VarhubGameClientProvider: FC<PropsWithChildren>;
-export const useVarhubGameClient: <CLIENT extends VarhubClient<Record<string, (...args: import("@flinbein/xjmapper").XJData[]) => import("@flinbein/xjmapper").XJData>, Record<string, import("@flinbein/xjmapper").XJData[]>>>() => CLIENT | null;
+export const useVarhubGameClient: <CLIENT>() => CLIENT | null;
 interface VarhubSelfControlEnterPageProps {
     darkMode?: boolean;
     roomIntegrity: string;
