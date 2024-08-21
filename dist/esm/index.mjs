@@ -55,13 +55,13 @@ var $dc6bedf7d60b80ba$exports = {};
 
 $parcel$export($dc6bedf7d60b80ba$exports, "getVarhubEnterParams", () => $dc6bedf7d60b80ba$export$57b65ef575b8a96b);
 $parcel$export($dc6bedf7d60b80ba$exports, "saveVarhubEnterParams", () => $dc6bedf7d60b80ba$export$43dc93b37e1cef48);
-const $dc6bedf7d60b80ba$export$57b65ef575b8a96b = ()=>{
+const $dc6bedf7d60b80ba$export$57b65ef575b8a96b = (initialParams)=>{
     const searchParams = new URLSearchParams(location.search);
     const varhubEnterState = JSON.parse(history?.state?.varhubEnterState || "{}");
-    const serverUrl = searchParams.get("serverUrl") ?? varhubEnterState.serverUrl ?? undefined;
+    const serverUrl = searchParams.get("serverUrl") ?? varhubEnterState.serverUrl ?? initialParams.serverUrl ?? undefined;
     const roomId = searchParams.get("roomId") ?? varhubEnterState.roomId ?? undefined;
     const playerName = varhubEnterState.playerName ?? undefined;
-    const settings = varhubEnterState.settings ?? {};
+    const settings = varhubEnterState.settings ?? initialParams.settings ?? {};
     const autoJoin = varhubEnterState.autoJoin ?? false;
     return {
         serverUrl: serverUrl,
@@ -91,8 +91,8 @@ var $0cac772cc8ad0209$exports = {};
 $parcel$export($0cac772cc8ad0209$exports, "useVarhubInitialParams", () => $0cac772cc8ad0209$export$281b4cc462f4fca);
 
 
-const $0cac772cc8ad0209$export$281b4cc462f4fca = ()=>{
-    return (0, $7RevM$useRef)((0, $dc6bedf7d60b80ba$export$57b65ef575b8a96b)()).current;
+const $0cac772cc8ad0209$export$281b4cc462f4fca = (initialParams)=>{
+    return (0, $7RevM$useRef)((0, $dc6bedf7d60b80ba$export$57b65ef575b8a96b)(initialParams)).current;
 };
 
 
@@ -123,7 +123,7 @@ const $f2afd96a63ac238e$export$3b0d6d7590275603 = ({ size: size })=>{
 
 
 const $cad624abfe712d33$export$60332b2344f7fe41 = (props)=>{
-    const { children: children, title: title, actions: actions, loading: loading } = props;
+    const { children: children, title: title, actions: actions, loading: loading, error: error } = props;
     return /*#__PURE__*/ (0, $7RevM$jsxs)("div", {
         className: (0, $7RevM$classnames)("varhub-card"),
         children: [
@@ -146,6 +146,10 @@ const $cad624abfe712d33$export$60332b2344f7fe41 = (props)=>{
             actions && /*#__PURE__*/ (0, $7RevM$jsx)("div", {
                 className: "varhub-card__content varhub-card__actions varhub-card__divider--top",
                 children: actions
+            }),
+            error && /*#__PURE__*/ (0, $7RevM$jsx)("div", {
+                className: "varhub-card__error varhub-card__content varhub-card__divider--top",
+                children: error
             }),
             /*#__PURE__*/ (0, $7RevM$jsxs)("div", {
                 className: "varhub-card__powered-by varhub-card__content varhub-card__divider--top",
@@ -317,7 +321,7 @@ const $939b2a0a89587ff0$export$83e3640adca2e7dd = (props)=>{
 
 const $b4cc80a948e954f2$var$urlPattern = /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/g;
 const $b4cc80a948e954f2$export$9b0e97c74cb15914 = (props)=>{
-    const { children: children, initialParams: initialParams, className: className, darkMode: darkMode, onEnter: onEnter, abortController: abortController } = props;
+    const { children: children, initialParams: initialParams, className: className, error: error, darkMode: darkMode, onEnter: onEnter, abortController: abortController } = props;
     const [joinMode, setJoinMode] = (0, $7RevM$useState)(initialParams?.roomId !== undefined);
     const switchJoinMode = (0, $7RevM$useCallback)(()=>setJoinMode((v)=>!v), [
         setJoinMode
@@ -330,9 +334,10 @@ const $b4cc80a948e954f2$export$9b0e97c74cb15914 = (props)=>{
         delayError: 500,
         shouldFocusError: false
     });
-    const onSubmit = (0, $7RevM$uselatestcallback)((data)=>{
-        onEnter?.({
-            joinMode: data.roomId === undefined,
+    const onSubmit = (0, $7RevM$uselatestcallback)(async (data)=>{
+        console.log("JOIn", data.roomId === undefined);
+        await onEnter?.({
+            joinMode: data.roomId !== undefined,
             serverUrl: data.serverUrl,
             roomId: data.roomId,
             playerName: data.playerName,
@@ -373,6 +378,7 @@ const $b4cc80a948e954f2$export$9b0e97c74cb15914 = (props)=>{
                 title: "SpyFall",
                 actions: actions,
                 loading: abortController != null,
+                error: error,
                 children: /*#__PURE__*/ (0, $7RevM$jsxs)((0, $7RevM$FormProvider), {
                     ...formMethods,
                     children: [
@@ -445,27 +451,37 @@ const $c7b499d0c8fbfc3a$export$d54a465aa59a4edc = ()=>{
 
 
 const $db98186b3469ed55$export$70faa2a42c1db4b3 = (props)=>{
-    const { roomIntegrity: roomIntegrity, importRoomModule: importRoomModule, onEnter: onEnter, children: children, darkMode: darkMode } = props;
-    const params = (0, $0cac772cc8ad0209$export$281b4cc462f4fca)();
+    const { roomIntegrity: roomIntegrity, importRoomModule: importRoomModule, onEnter: onEnter, children: children, darkMode: darkMode, initialParams: initialParams } = props;
+    const params = (0, $0cac772cc8ad0209$export$281b4cc462f4fca)(initialParams);
+    const [error, setError] = (0, $7RevM$useState)(null);
     const ctx = (0, $7RevM$useContext)((0, $c7b499d0c8fbfc3a$export$b6a89eec864391f));
     const [abortController, setAbortController] = (0, $7RevM$useState)(null);
     const onEnterPage = (0, $7RevM$useCallback)(async (params)=>{
+        setError(null);
         const abortController = new AbortController();
         setAbortController(abortController);
-        const client = await (0, $ad6a7c3143400999$export$1178a94447621ed4)({
-            ...params,
-            roomIntegrity: roomIntegrity,
-            importRoomModule: importRoomModule,
-            abortController: abortController
-        });
-        setAbortController(null);
-        onEnter?.(client);
-        ctx.setClient(client);
-        (0, $dc6bedf7d60b80ba$export$43dc93b37e1cef48)({
-            ...params,
-            roomId: client.roomId,
-            autoJoin: true
-        });
+        let client = null;
+        try {
+            client = await (0, $ad6a7c3143400999$export$1178a94447621ed4)({
+                ...params,
+                roomIntegrity: roomIntegrity,
+                importRoomModule: importRoomModule,
+                abortController: abortController
+            });
+            onEnter?.(client);
+            ctx.setClient(client);
+            (0, $dc6bedf7d60b80ba$export$43dc93b37e1cef48)({
+                ...params,
+                roomId: client.roomId,
+                autoJoin: true
+            });
+        } catch (err) {
+            const actionText = params.joinMode ? "connect to" : "create";
+            setError(`Error while trying to ${actionText} room`);
+            console.error(err);
+        } finally{
+            setAbortController(null);
+        }
     }, [
         onEnter
     ]);
@@ -474,6 +490,7 @@ const $db98186b3469ed55$export$70faa2a42c1db4b3 = (props)=>{
         initialParams: params,
         onEnter: onEnterPage,
         abortController: abortController,
+        error: error,
         children: children
     });
 };

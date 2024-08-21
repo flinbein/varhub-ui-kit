@@ -103,6 +103,11 @@
   font-size: 12px;
 }
 
+.varhub-card__error {
+  color: #f33;
+  font-size: 14px;
+}
+
 .varhub-card__link {
   color: #2ea44f;
 }

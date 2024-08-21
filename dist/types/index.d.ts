@@ -1,5 +1,5 @@
 import { VarhubClient } from "@flinbein/varhub-web-client";
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, ReactNode } from "react";
 export interface CreateRoomAndClientOpts {
     serverUrl: string;
     playerName: string;
@@ -16,16 +16,18 @@ export interface CreateRoomAndClientOpts {
     roomIntegrity: string;
 }
 export function createVarhubRoomAndClient(opts: CreateRoomAndClientOpts): Promise<VarhubClient<any, any>>;
-export interface VarhubEnterParams {
+export interface VarhubInitialEnterParams {
     serverUrl?: string;
+    settings?: any;
+}
+export interface VarhubEnterParams extends VarhubInitialEnterParams {
     roomId?: string;
     playerName?: string;
     autoJoin?: boolean;
-    settings?: any;
 }
-export const getVarhubEnterParams: () => VarhubEnterParams;
+export const getVarhubEnterParams: (initialParams: VarhubInitialEnterParams) => VarhubEnterParams;
 export const saveVarhubEnterParams: (params: VarhubEnterParams) => void;
-export const useVarhubInitialParams: () => import("util/varhubParams").VarhubEnterParams;
+export const useVarhubInitialParams: (initialParams: VarhubInitialEnterParams) => import("util/varhubParams").VarhubEnterParams;
 interface VarhubInputParameterProps {
     name: string;
     placeholder?: string;
@@ -55,7 +57,8 @@ interface VarhubEnterPageProps {
     initialParams?: VarhubEnterParams;
     className?: string;
     darkMode?: boolean;
-    onEnter?: (opts: OnEnterRoomOpts) => void;
+    onEnter?: (opts: OnEnterRoomOpts) => Promise<void>;
+    error?: ReactNode | null;
     abortController?: AbortController | null;
 }
 export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>>;
@@ -67,6 +70,7 @@ export const VarhubGameClientContext: import("react").Context<IVarhubGameClientC
 export const VarhubGameClientProvider: FC<PropsWithChildren>;
 export const useVarhubGameClient: <CLIENT>() => CLIENT | null;
 interface VarhubSelfControlEnterPageProps {
+    initialParams?: VarhubInitialEnterParams;
     darkMode?: boolean;
     roomIntegrity: string;
     importRoomModule: CreateRoomAndClientOpts["importRoomModule"];
