@@ -8,10 +8,11 @@ interface CardProps {
     title: string;
     actions?: ReactNode
     loading?: boolean;
+    error?: ReactNode|null
 }
 
 export const Card: FC<PropsWithChildren<CardProps>> = (props) => {
-    const {children, title, actions, loading} = props;
+    const {children, title, actions, loading, error} = props;
 
     return (
         <div className={cn("varhub-card")}>
@@ -26,6 +27,12 @@ export const Card: FC<PropsWithChildren<CardProps>> = (props) => {
             {actions && (
                 <div className="varhub-card__content varhub-card__actions varhub-card__divider--top">
                     {actions}
+                </div>
+            )}
+
+            {error && (
+                <div className="varhub-card__error varhub-card__content varhub-card__divider--top">
+                    {error}
                 </div>
             )}
 

@@ -58,6 +58,11 @@
     color: var(--color-text-page);
 }
 
+.varhub-card__error {
+    font-size: 14px;
+    color: #ff3333
+}
+
 .varhub-card__link {
     color: #2ea44f
 }

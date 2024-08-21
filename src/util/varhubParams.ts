@@ -1,20 +1,25 @@
-export interface VarhubEnterParams {
+export interface VarhubInitialEnterParams {
     serverUrl?: string;
-    roomId?: string;
-    playerName?: string;
-    autoJoin?: boolean;
     settings?: any;
 }
 
-export const getVarhubEnterParams = ():VarhubEnterParams  => {
+export interface VarhubEnterParams  extends  VarhubInitialEnterParams{
+    roomId?: string;
+    playerName?: string;
+    autoJoin?: boolean;
+}
+
+
+
+export const getVarhubEnterParams = (initialParams: VarhubInitialEnterParams):VarhubEnterParams  => {
     const searchParams = new URLSearchParams(location.search);
 
     const varhubEnterState = JSON.parse(history?.state?.varhubEnterState || "{}") as VarhubEnterParams
-    const serverUrl = searchParams.get("serverUrl") ?? varhubEnterState.serverUrl ?? undefined;
+    const serverUrl = searchParams.get("serverUrl") ?? varhubEnterState.serverUrl ?? initialParams.serverUrl ?? undefined;
     const roomId = searchParams.get("roomId") ?? varhubEnterState.roomId ?? undefined;
 
     const playerName = varhubEnterState.playerName ?? undefined;
-    const settings = varhubEnterState.settings ?? {};
+    const settings = varhubEnterState.settings ?? initialParams.settings ?? {};
     const autoJoin = varhubEnterState.autoJoin ?? false;
 
     return {

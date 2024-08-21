@@ -1,4 +1,4 @@
-import {FC, PropsWithChildren, useCallback, useEffect, useMemo, useState} from "react";
+import {FC, PropsWithChildren, ReactNode, useCallback, useEffect, useMemo, useState} from "react";
 import {Card} from "./Card/Card";
 import {FormProvider, useForm} from "react-hook-form";
 import {VarhubInputParameter} from "./parameter/VarhubInputParameter";
@@ -27,12 +27,13 @@ interface VarhubEnterPageProps {
 
     className?: string;
     darkMode?: boolean;
-    onEnter?: (opts: OnEnterRoomOpts) => void;
+    onEnter?: (opts: OnEnterRoomOpts) => Promise<void>;
+    error?: ReactNode|null
     abortController?: AbortController|null;
 }
 
 export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>> = (props) => {
-    const {children, initialParams, className, darkMode, onEnter, abortController} = props;
+    const {children, initialParams, className, error, darkMode, onEnter, abortController} = props;
 
     const [joinMode, setJoinMode] = useState(initialParams?.roomId !== undefined);
     const switchJoinMode = useCallback(() => setJoinMode(v => !v), [setJoinMode])
@@ -46,9 +47,10 @@ export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>> = (pro
         shouldFocusError: false
     });
 
-    const onSubmit = useLatestCallback((data) => {
-        onEnter?.({
-            joinMode: data.roomId === undefined,
+    const onSubmit = useLatestCallback(async (data) => {
+        console.log("JOIn",data.roomId === undefined);
+        await onEnter?.({
+            joinMode: data.roomId !== undefined,
             serverUrl: data.serverUrl,
             roomId: data.roomId,
             playerName: data.playerName,
@@ -84,7 +86,7 @@ export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>> = (pro
                 className="varhub-form"
                 onSubmit={formMethods.handleSubmit(onSubmit)}
             >
-                <Card title={"SpyFall"} actions={actions} loading={abortController != null}>
+                <Card title={"SpyFall"} actions={actions} loading={abortController != null} error={error}>
                     <FormProvider {...formMethods}>
                         <VarhubInputParameter
                             required

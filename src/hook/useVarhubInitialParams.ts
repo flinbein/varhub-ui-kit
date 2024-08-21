@@ -1,6 +1,6 @@
 import {useRef} from "react";
-import {getVarhubEnterParams} from "../util/varhubParams";
+import {getVarhubEnterParams, VarhubInitialEnterParams} from "../util/varhubParams";
 
-export const useVarhubInitialParams = () => {
-    return useRef(getVarhubEnterParams()).current
+export const useVarhubInitialParams = (initialParams: VarhubInitialEnterParams) => {
+    return useRef(getVarhubEnterParams(initialParams)).current
 }

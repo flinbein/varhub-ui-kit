@@ -17,6 +17,7 @@ export const App: FC = () => {
                 onEnter={onEnter}
                 roomIntegrity={roomIntegrity}
                 importRoomModule={() => import("varhub-modules:./game:index.ts")}
+                initialParams={{serverUrl: "https://varhub.flinbein.ru"}}
             >
                 <SettingsNumberParameter name={"maxScore"} min={3} label="Max score"/>
                 <SettingsInputParameter name={"chatGPTUrl"} label="ChatGPT Url"/>
