@@ -48,7 +48,7 @@ export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>> = (pro
     });
 
     const onSubmit = useLatestCallback(async (data) => {
-        console.log("JOIn",data.roomId === undefined);
+        console.log("$$$","ON SUBMIT")
         await onEnter?.({
             joinMode: data.roomId !== undefined,
             serverUrl: data.serverUrl,

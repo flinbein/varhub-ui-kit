@@ -28,6 +28,7 @@ export const VarhubSelfControlEnterPage: FC<PropsWithChildren<VarhubSelfControlE
         setAbortController(abortController);
         let client: VarhubClient|null = null;
         try {
+            console.log("$$$","CREATE CLIENT")
             client = await createVarhubRoomAndClient({
                 ...params,
                 roomIntegrity,
