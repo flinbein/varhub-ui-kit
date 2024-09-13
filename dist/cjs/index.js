@@ -335,7 +335,7 @@ const $1bbfea496ecfa0e7$export$9b0e97c74cb15914 = (props)=>{
         shouldFocusError: false
     });
     const onSubmit = (0, $6FeVr$uselatestcallback)(async (data)=>{
-        console.log("JOIn", data.roomId === undefined);
+        console.log("$$$", "ON SUBMIT");
         await onEnter?.({
             joinMode: data.roomId !== undefined,
             serverUrl: data.serverUrl,
@@ -346,6 +346,7 @@ const $1bbfea496ecfa0e7$export$9b0e97c74cb15914 = (props)=>{
     });
     (0, $6FeVr$useEffect)(()=>{
         if (!initialParams?.autoJoin) return;
+        console.log("AUTO JOIN");
         onSubmit(formMethods.getValues());
     }, [
         initialParams?.autoJoin
@@ -462,6 +463,7 @@ const $93cd45a1d9c70777$export$70faa2a42c1db4b3 = (props)=>{
         setAbortController(abortController);
         let client = null;
         try {
+            console.log("$$$", "CREATE CLIENT");
             client = await (0, $6284b252915b3f38$export$1178a94447621ed4)({
                 ...params,
                 roomIntegrity: roomIntegrity,

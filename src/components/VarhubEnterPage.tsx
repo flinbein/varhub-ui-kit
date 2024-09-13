@@ -60,6 +60,7 @@ export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>> = (pro
 
     useEffect(() => {
         if (!initialParams?.autoJoin) return;
+        console.log("AUTO JOIN")
         onSubmit(formMethods.getValues())
     }, [initialParams?.autoJoin])
 
