@@ -3,7 +3,7 @@ import {VarhubGameClientProvider} from "../context";
 import {SettingsInputParameter, SettingsNumberParameter, SettingsSwitchParameter, VarhubSelfControlEnterPage} from "../components";
 
 
-import roomIntegrity from "varhub-modules-integrity:./game:index.ts";
+import roomIntegrity from "./game?varhub-bundle:integrity";
 
 export const App: FC = () => {
     const onEnter = useCallback((client) => {
@@ -16,7 +16,7 @@ export const App: FC = () => {
                 darkMode
                 onEnter={onEnter}
                 roomIntegrity={roomIntegrity}
-                importRoomModule={() => import("varhub-modules:./game:index.ts")}
+                importRoomModule={() => import("./game/index.ts?varhub-bundle")}
                 initialParams={{serverUrl: "https://varhub.flinbein.ru"}}
             >
                 <SettingsNumberParameter name={"maxScore"} min={3} label="Max score"/>

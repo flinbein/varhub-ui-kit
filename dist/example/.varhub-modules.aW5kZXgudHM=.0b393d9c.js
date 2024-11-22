@@ -1,2 +1,0 @@
-function e(e,o,r,n){Object.defineProperty(e,o,{get:r,set:n,enumerable:!0,configurable:!0})}(0,globalThis.parcelRequireba06.register)("3oxEX",function(o,r){e(o.exports,"roomIntegrity",()=>n),e(o.exports,"roomModule",()=>f);let n="2f687994242af0b1238423a225fbd1002798043f02ef1fc0feab5a84b9cbd3ef",f={main:"index.js",source:{"index.js":'console.log("AMMA GAME CODE");\n'}}});
-//# sourceMappingURL=.varhub-modules.aW5kZXgudHM=.0b393d9c.js.map

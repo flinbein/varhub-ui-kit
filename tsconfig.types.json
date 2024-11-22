@@ -4,5 +4,6 @@
     "outDir": "./dist",
     "emitDeclarationOnly": true
   },
-  "include": ["./src/index.ts"]
+  "include": ["./src/**/*"],
+  "exclude": ["./src/example/**/*"]
 }

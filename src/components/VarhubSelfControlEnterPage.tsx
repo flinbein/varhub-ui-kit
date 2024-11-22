@@ -24,22 +24,22 @@ export const VarhubSelfControlEnterPage: FC<PropsWithChildren<VarhubSelfControlE
 
     const onEnterPage = useCallback(async (params: OnEnterRoomOpts) => {
         setError(null);
-        const abortController = new AbortController();
-        setAbortController(abortController);
         let client: VarhubClient|null = null;
+        let roomId: string;
         try {
             console.log("$$$","CREATE CLIENT")
-            client = await createVarhubRoomAndClient({
+            const res = await createVarhubRoomAndClient({
                 ...params,
                 roomIntegrity,
                 importRoomModule,
-                abortController
             });
+            client = res.client;
+            roomId = res.roomId;
             onEnter?.(client);
             ctx.setClient(client)
             saveVarhubEnterParams({
                 ...params,
-                roomId: client.roomId,
+                roomId,
                 autoJoin: true
             })
         } catch (err) {

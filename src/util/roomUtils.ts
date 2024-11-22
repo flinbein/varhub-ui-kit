@@ -1,29 +1,42 @@
 import {Varhub, VarhubClient} from "@flinbein/varhub-web-client";
+import type * as VHRoomBundle from "*?varhub-bundle";
+
+export type Engine = Parameters<Varhub["createRoom"]>[0];
 
 export interface CreateRoomAndClientOpts {
+    engine?: Engine
+    roomPublicMessage?: string;
     serverUrl: string;
     playerName: string;
     roomId?: string;
 
-    abortController: AbortController;
     settings?: any;
 
-    importRoomModule: () => Promise<{roomIntegrity: string; roomModule: { main: string, source: Record<string, string>}}>;
+    importRoomModule: () => Promise<typeof VHRoomBundle>;
     roomIntegrity: string;
 }
 
 export async function createVarhubRoomAndClient(opts: CreateRoomAndClientOpts){
-    const {serverUrl, playerName, abortController, settings = {}, importRoomModule, roomIntegrity} = opts;
+    const {
+        serverUrl,
+        playerName,
+        settings = {},
+        importRoomModule,
+        roomIntegrity,
+        engine = "ivm",
+        roomPublicMessage
+    } = opts;
 
     let roomId = opts.roomId;
 
     const hub = new Varhub(serverUrl);
 
     if (!roomId) {
-        const { roomModule, roomIntegrity} = await importRoomModule();
-        const roomData = await hub.createRoom(roomModule, {integrity: roomIntegrity, config: settings});
+        const {integrity, module} = await importRoomModule();
+        const roomData = await hub.createRoom(engine, {module, integrity, config: settings, message: roomPublicMessage});
         roomId = roomData.id;
     }
-    return await hub.join(roomId, playerName, {integrity: roomIntegrity, timeout: abortController?.signal}) as any as VarhubClient<any, any>;
+    const client = hub.join(roomId, {params: [playerName], integrity: roomIntegrity})
+    return {roomId, client, playerName};
 }
 

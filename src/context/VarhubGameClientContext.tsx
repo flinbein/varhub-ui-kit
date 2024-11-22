@@ -2,14 +2,14 @@ import {createContext, FC, PropsWithChildren, useContext, useMemo, useState} fro
 import type {VarhubClient} from "@flinbein/varhub-web-client";
 
 interface IVarhubGameClientContext {
-    client: VarhubClient<any, any>|null;
-    setClient: (client: VarhubClient<any, any>) => void;
+    client: VarhubClient|null;
+    setClient: (client: VarhubClient) => void;
 }
 
 export const VarhubGameClientContext = createContext<IVarhubGameClientContext>(null as any);
 
 export const VarhubGameClientProvider: FC<PropsWithChildren> = ({children}) => {
-    const [client, setClient] = useState< VarhubClient<any, any> | null >(null);
+    const [client, setClient] = useState< VarhubClient | null >(null);
 
     const ctxValue = useMemo(() => ({client, setClient}), [client, setClient])
 
