@@ -332,8 +332,8 @@ class es {
     }), t.binaryType = "arraybuffer", t.readyState === WebSocket.CLOSING || t.readyState === WebSocket.CLOSED)
       throw new Error("websocket is closed");
     t.readyState === WebSocket.CONNECTING ? t.addEventListener("open", () => {
-      le(this, ht, !0), le(this, At, !1), y(this, it).emitWithTry("open"), y(this, wt).resolve([this]);
-    }) : (le(this, ht, !0), y(this, wt).resolve([this])), t.addEventListener("message", (i) => {
+      le(this, ht, !0), le(this, At, !1), y(this, it).emitWithTry("open"), y(this, wt).resolve(this);
+    }) : (le(this, ht, !0), y(this, wt).resolve(this)), t.addEventListener("message", (i) => {
       y(this, it).emitWithTry("message", ...ii(i.data));
     }), t.addEventListener("close", (i) => {
       const s = y(this, ht);

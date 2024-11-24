@@ -273,9 +273,9 @@
     "@flinbein/json-stable-hash" "github:flinbein/json-stable-hash"
     esbuild "^0.24.0"
 
-"@flinbein/varhub-web-client@git+https://github.com/flinbein/varhub-web-client.git#2.3.1":
-  version "2.3.1"
-  resolved "git+https://github.com/flinbein/varhub-web-client.git#e265f3b9a81765263eefcae64de594cbd7cf8c26"
+"@flinbein/varhub-web-client@git+https://github.com/flinbein/varhub-web-client.git#2.3.2":
+  version "2.3.2"
+  resolved "git+https://github.com/flinbein/varhub-web-client.git#1abef581d68c3e176a7f3250191ceda337af26df"
   dependencies:
     "@flinbein/xjmapper" "github:flinbein/xjmapper#2.0.2"
 
