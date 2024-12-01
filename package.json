@@ -1,6 +1,6 @@
 {
   "name": "@flinbein/varhub-ui-kit",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "type": "module",
   "description": "An starter ui kit for varhub games",
   "license": "MIT",
@@ -10,7 +10,7 @@
   "files": ["dist"],
   "types": "./dist/types/index.d.ts",
   "scripts": {
-    "dev": "vite --config vite.config.example.ts --host",
+    "dev": "vite --config vite.config.example.ts",
     "build": "vite build --config vite.config.ts",
     "preview": "vite preview --config vite.config.example.ts"
   },
@@ -22,7 +22,7 @@
     }
   },
   "dependencies": {
-    "@flinbein/varhub-web-client": "git+https://github.com/flinbein/varhub-web-client.git#2.3.2",
+    "@flinbein/varhub-web-client": "git+https://github.com/flinbein/varhub-web-client.git#2.3.6",
     "classnames": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -31,8 +31,6 @@
   },
   "devDependencies": {
     "@flinbein/rollup-plugin-varhub-bundle": "github:flinbein/rollup-plugin-varhub-bundle",
-    "@parcel/packager-ts": "^2.12.0",
-    "@parcel/transformer-typescript-types": "^2.12.0",
     "@types/node": "^22.9.1",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
