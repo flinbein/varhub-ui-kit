@@ -1,4 +1,5 @@
 import type { UserConfig } from 'vite';
+import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import dts from "vite-plugin-dts";
 
 export default {
@@ -18,6 +19,7 @@ export default {
         emptyOutDir: true,
     },
     plugins: [
+        externalizeDeps(),
         dts({
             insertTypesEntry: true,
             outDir: "./dist/types",
