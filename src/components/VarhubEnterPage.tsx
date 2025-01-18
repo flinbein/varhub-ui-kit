@@ -24,7 +24,7 @@ export interface OnEnterRoomOpts {
 
 interface VarhubEnterPageProps {
     initialParams?: VarhubEnterParams
-
+    title?: ReactNode;
     className?: string;
     darkMode?: boolean;
     onEnter?: (opts: OnEnterRoomOpts) => Promise<void>;
@@ -33,7 +33,7 @@ interface VarhubEnterPageProps {
 }
 
 export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>> = (props) => {
-    const {children, initialParams, className, error, darkMode, onEnter, abortController} = props;
+    const {children, title, initialParams, className, error, darkMode, onEnter, abortController} = props;
 
     const [joinMode, setJoinMode] = useState(initialParams?.roomId !== undefined);
     const switchJoinMode = useCallback(() => setJoinMode(v => !v), [setJoinMode])
@@ -48,7 +48,6 @@ export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>> = (pro
     });
 
     const onSubmit = useLatestCallback(async (data) => {
-        console.log("$$$","ON SUBMIT")
         await onEnter?.({
             joinMode: data.roomId !== undefined,
             serverUrl: data.serverUrl,
@@ -60,7 +59,6 @@ export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>> = (pro
 
     useEffect(() => {
         if (!initialParams?.autoJoin) return;
-        console.log("AUTO JOIN")
         onSubmit(formMethods.getValues())
     }, [initialParams?.autoJoin])
 
@@ -87,7 +85,7 @@ export const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>> = (pro
                 className="varhub-form"
                 onSubmit={formMethods.handleSubmit(onSubmit)}
             >
-                <Card title={"SpyFall"} actions={actions} loading={abortController != null} error={error}>
+                <Card title={title} actions={actions} loading={abortController != null} error={error}>
                     <FormProvider {...formMethods}>
                         <VarhubInputParameter
                             required

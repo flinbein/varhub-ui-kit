@@ -5,7 +5,7 @@ import {Loader} from "../Loader/Loader";
 import "./Card.css";
 
 interface CardProps {
-    title: string;
+    title: ReactNode;
     actions?: ReactNode
     loading?: boolean;
     error?: ReactNode|null

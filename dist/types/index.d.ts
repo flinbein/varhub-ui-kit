@@ -56,6 +56,7 @@ export declare const VarhubEnterPage: FC<PropsWithChildren<VarhubEnterPageProps>
 
 declare interface VarhubEnterPageProps {
     initialParams?: VarhubEnterParams;
+    title?: ReactNode;
     className?: string;
     darkMode?: boolean;
     onEnter?: (opts: OnEnterRoomOpts) => Promise<void>;
@@ -104,6 +105,7 @@ declare interface VarhubSelfControlEnterPageProps {
     initialParams?: VarhubInitialEnterParams;
     darkMode?: boolean;
     roomIntegrity: string;
+    title?: ReactNode;
     importRoomModule: CreateRoomAndClientOpts["importRoomModule"];
     onEnter?: (client: VarhubClient) => void;
 }

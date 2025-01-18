@@ -1,4 +1,4 @@
-import {FC, PropsWithChildren, useCallback, useContext, useState} from "react";
+import {FC, PropsWithChildren, ReactNode, useCallback, useContext, useState} from "react";
 import {OnEnterRoomOpts, VarhubEnterPage} from "./VarhubEnterPage";
 import {useVarhubInitialParams} from "../hook/useVarhubInitialParams";
 import {CreateRoomAndClientOpts, createVarhubRoomAndClient} from "../util/roomUtils";
@@ -10,12 +10,21 @@ interface VarhubSelfControlEnterPageProps {
     initialParams?: VarhubInitialEnterParams
     darkMode?: boolean;
     roomIntegrity: string;
+    title?: ReactNode;
     importRoomModule: CreateRoomAndClientOpts["importRoomModule"]
     onEnter?: (client: VarhubClient) => void;
 }
 
 export const VarhubSelfControlEnterPage: FC<PropsWithChildren<VarhubSelfControlEnterPageProps>> = (props) => {
-    const {roomIntegrity, importRoomModule, onEnter, children, darkMode, initialParams} = props;
+    const {
+        roomIntegrity,
+        importRoomModule,
+        onEnter,
+        title,
+        children,
+        darkMode,
+        initialParams
+    } = props;
 
     const params = useVarhubInitialParams(initialParams);
     const [error, setError] = useState(null)
@@ -33,7 +42,7 @@ export const VarhubSelfControlEnterPage: FC<PropsWithChildren<VarhubSelfControlE
                 roomIntegrity,
                 importRoomModule,
             });
-            client = res.client;
+            client = await res.client;
             roomId = res.roomId;
             onEnter?.(client);
             ctx.setClient(client)
@@ -56,6 +65,7 @@ export const VarhubSelfControlEnterPage: FC<PropsWithChildren<VarhubSelfControlE
             darkMode={darkMode}
             initialParams={params}
             onEnter={onEnterPage}
+            title={title}
             abortController={abortController}
             error={error}
         >
